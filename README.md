@@ -37,15 +37,12 @@ assignment2/
 │   └── script.js       Single JavaScript file for all pages
 ├── images/
 │   ├── logo.png        Site logo
-│   ├── restaurant1.jpg Bella Roma (Italian)
-│   ├── restaurant2.jpg Sakura Kitchen (Japanese)
-│   ├── restaurant3.jpg Spice Garden (Indian)
-│   ├── restaurant4.jpg Golden Dragon (Chinese)
-│   ├── restaurant5.jpg Athena Taverna (Greek)
-│   ├── restaurant6.jpg El Rancho (Mexican)
-│   ├── service1.jpg    Restaurant discovery service image
-│   ├── service2.jpg    Recommendation service image
-│   └── service3.jpg    Reservation service image
+│   ├── athena.jpg  Athena Taverna (Greek)
+│   ├── Bella roma.jpg Bella Roma (Italian)
+│   ├── el.jpg El Rancho (Mexican)
+│   ├── golden dragon.jpg Golden Dragon (Chinese)
+│   ├── Sakura.jpg Sakura Kitchen (Japanese)
+│   ├── spice g.jpg  Spice Garden (Indian)
 └── Readme.txt          This file
 
 ----------------------------------------------------------------
@@ -186,12 +183,23 @@ All restaurant descriptions, dish names and prices are fictional
 and created for this assignment. No real businesses are referenced.
 
 Images used:
-- [Replace with actual image sources and licences]
-- If using free stock images, cite the source (e.g. Unsplash, Pixabay)
-- Format: Author/Website, Title, URL, Licence (e.g. CC0)
+- El rancho restaurant Outside photo of restaurent
+  https://elranchoharrisburg.com/
 
-Example:
-  Unsplash (2024). Italian restaurant interior. 
-  https://unsplash.com/photos/XXXX. Licence: Unsplash Free Licence.
+- trip advisor. Spice garden eating house and grill
+  https://www.tripadvisor.com.au/
+
+- Welcome to yorkshire. Athena greek Taverna
+  yorkshire.com 
+
+-Trip advisor. Golden Dragon BBQ and seafood house
+  https://www.tripadvisor.com.au/
+
+-Sakura japanese Kitchen. Authentic japanese cuisine
+  https://sakurajapanesekitchen.menu-res.com/
+
+- perth mum groups. pizza bella Roma
+  https://perthmumsgroup.com.au/pizza-bella-roma-fremantle/
+
 
 ----------------------------------------------------------------
