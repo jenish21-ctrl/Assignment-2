@@ -15,7 +15,7 @@ Submission Date: 31 May 2026
 GITHUB REPOSITORY
 ----------------------------------------------------------------
 
-GitHub Repository URL: [Paste your GitHub repo URL here]
+GitHub Repository URL: https://github.com/jenish21-ctrl/Assignment-2.git
 
 The repository contains all project files and must remain
 accessible to the marker during the marking period.
