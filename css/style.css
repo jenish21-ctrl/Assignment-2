@@ -1,0 +1,741 @@
+/* style.css - DineEasy Restaurant Platform */
+/* COS10005 Assignment 2 - Jenish Patel - 2026 */
+
+/* ---- base / reset ---- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333;
+    background-color: #fff;
+}
+
+/* grouping selector - all headings */
+h1, h2, h3, h4 {
+    color: #222;
+    margin-bottom: 10px;
+}
+
+h1 { font-size: 30px; }
+h2 { font-size: 22px; }
+h3 { font-size: 18px; }
+
+p { margin-bottom: 12px; }
+
+/* element selector */
+a { color: #e05c00; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #b84800; }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul { padding-left: 20px; }
+li { margin-bottom: 4px; }
+
+/* ---- header ---- */
+
+header {
+    background-color: #e05c00;
+    padding: 0 20px;
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+/* class selector */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ---- navigation ---- */
+
+/* id selector */
+#main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+}
+
+/* contextual selector */
+#main-nav ul li a {
+    color: white;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    /* transition for hover effect */
+    transition: background-color 0.3s ease;
+}
+
+/* pseudo-class */
+#main-nav ul li a:hover {
+    background-color: #b84800;
+}
+
+#main-nav ul li a:visited {
+    color: white;
+}
+
+/* class selector - active page */
+#main-nav ul li a.active {
+    background-color: #fff;
+    color: #e05c00;
+}
+
+/* ---- hero section ---- */
+
+.hero {
+    background-color: #fff3ec;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 3px solid #e05c00;
+}
+
+.hero-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 34px;
+    color: #e05c00;
+    margin-bottom: 14px;
+}
+
+.hero p {
+    font-size: 17px;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ---- buttons ---- */
+
+/* class selector */
+.btn-primary {
+    background-color: #e05c00;
+    color: white;
+    padding: 11px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #b84800;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-primary:visited {
+    color: white;
+}
+
+/* class selector */
+.btn-secondary {
+    background-color: white;
+    color: #e05c00;
+    padding: 11px 24px;
+    border: 2px solid #e05c00;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #e05c00;
+    color: white;
+    text-decoration: none;
+}
+
+/* ---- main layout ---- */
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ---- page title section ---- */
+
+.page-title {
+    margin-bottom: 28px;
+    border-left: 4px solid #e05c00;
+    padding-left: 16px;
+}
+
+.page-title h1 {
+    color: #e05c00;
+    margin-bottom: 6px;
+}
+
+/* ---- home page sections ---- */
+
+.about-section {
+    margin-bottom: 40px;
+    padding: 24px;
+    background-color: #fff8f4;
+    border-radius: 6px;
+    border: 1px solid #f5cdb0;
+}
+
+.services-section,
+.users-section,
+.quicklinks-section {
+    margin-bottom: 40px;
+}
+
+.services-section h2,
+.users-section h2,
+.quicklinks-section h2 {
+    margin-bottom: 20px;
+    color: #e05c00;
+}
+
+/* class selector - card grid */
+.cards-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* class selector */
+.card {
+    flex: 1;
+    min-width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+/* contextual - img inside card */
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: #e05c00;
+    margin-bottom: 8px;
+}
+
+/* class selector */
+.users-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.user-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 16px;
+    background-color: #fff8f4;
+    border-radius: 6px;
+    border-top: 3px solid #e05c00;
+}
+
+.user-item h3 {
+    color: #e05c00;
+    margin-bottom: 6px;
+}
+
+/* cuisine tags */
+.cuisine-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* class selector */
+.cuisine-tag {
+    background-color: #e05c00;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cuisine-tag:hover {
+    background-color: #b84800;
+    color: white;
+    text-decoration: none;
+}
+
+/* ---- restaurant cards ---- */
+
+/* class selector */
+.restaurant-card {
+    display: flex;
+    gap: 24px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 24px;
+    background-color: #fff;
+    align-items: flex-start;
+}
+
+/* contextual - img inside restaurant card */
+.restaurant-card img {
+    width: 240px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.restaurant-info { flex: 1; }
+
+.restaurant-info h2 {
+    color: #e05c00;
+    margin-bottom: 6px;
+}
+
+/* class selector */
+.cuisine-badge {
+    display: inline-block;
+    background-color: #e05c00;
+    color: white;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description {
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: #444;
+}
+
+.restaurant-details {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    background-color: #fff8f4;
+    padding: 14px;
+    border-radius: 5px;
+}
+
+.detail-item { flex: 1; min-width: 160px; }
+.detail-item strong { color: #e05c00; display: block; margin-bottom: 4px; }
+.detail-item ul { font-size: 14px; }
+.detail-item p { font-size: 14px; margin-bottom: 0; }
+
+/* ---- forms ---- */
+
+.form-section {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+/* class selector */
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* element selector */
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* element selectors grouped */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+select,
+textarea {
+    padding: 10px 12px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    transition: border-color 0.2s ease;
+}
+
+/* pseudo-class */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #e05c00;
+    box-shadow: 0 0 0 2px rgba(224, 92, 0, 0.15);
+}
+
+/* class selector */
+.required { color: #c00; }
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+/* class selector */
+.radio-label,
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: normal;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* class selector - error messages */
+.error-msg {
+    color: #c00;
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+    min-height: 16px;
+}
+
+small {
+    font-size: 12px;
+    color: #777;
+    margin-top: 3px;
+}
+
+/* ---- deposit display on reservation ---- */
+
+.deposit-amount {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e05c00;
+    background-color: #fff3ec;
+    padding: 10px 14px;
+    border-radius: 4px;
+    border: 1px solid #f5cdb0;
+    margin: 0;
+}
+
+/* ---- recommendation page ---- */
+
+.recommend-section {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.recommend-form-wrap {
+    margin-bottom: 28px;
+}
+
+/* class selector */
+.recommendation-result {
+    background-color: #fff3ec;
+    border: 2px solid #e05c00;
+    border-radius: 6px;
+    padding: 22px;
+    margin-top: 20px;
+}
+
+.recommendation-result h2 {
+    color: #e05c00;
+    margin-bottom: 14px;
+}
+
+.result-card h3 {
+    color: #e05c00;
+    margin-bottom: 6px;
+}
+
+/* class selector */
+.no-match-msg {
+    background-color: #fff3ec;
+    border: 1px solid #f5cdb0;
+    border-radius: 5px;
+    padding: 16px;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+/* ---- bill calculator ---- */
+
+.bill-section {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.bill-form-wrap {
+    background-color: #fff8f4;
+    border: 1px solid #f5cdb0;
+    border-radius: 6px;
+    padding: 24px;
+    margin-bottom: 28px;
+}
+
+/* class selector */
+.bill-result {
+    background-color: #fff3ec;
+    border: 2px solid #e05c00;
+    border-radius: 6px;
+    padding: 22px;
+}
+
+.bill-result h2 {
+    color: #e05c00;
+    margin-bottom: 16px;
+}
+
+/* class selector */
+.bill-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+/* contextual - td inside bill-table */
+.bill-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #f0cdb0;
+}
+
+/* class selector */
+.total-row td {
+    background-color: #e05c00;
+    color: white;
+    font-size: 16px;
+}
+
+.bill-note {
+    font-size: 13px;
+    color: #777;
+    font-style: italic;
+    margin-bottom: 16px;
+}
+
+/* ---- footer ---- */
+
+footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+/* class selector */
+.footer-nav {
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* contextual - links in footer */
+footer a { color: #ffa060; text-decoration: none; }
+footer a:hover { color: white; }
+footer a:visited { color: #ff8040; }
+
+
+/* ============================================
+   RESPONSIVE DESIGN
+   Desktop: 1024px and above (default above)
+   Tablet: 768px - 1023px
+   Mobile: 767px and below
+   ============================================ */
+
+/* -- Tablet styles -- */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+
+    .header-inner {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 0;
+        text-align: center;
+    }
+
+    #main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .hero h1 { font-size: 26px; }
+
+    .restaurant-card {
+        flex-direction: column;
+    }
+
+    .restaurant-card img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .cards-grid {
+        gap: 16px;
+    }
+
+    .card {
+        min-width: 200px;
+    }
+
+}
+
+/* -- Mobile styles -- */
+@media screen and (max-width: 767px) {
+
+    body { font-size: 15px; }
+
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+    h3 { font-size: 16px; }
+
+    /* header stacks on mobile */
+    .header-inner {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 0;
+        text-align: center;
+    }
+
+    /* nav stacks vertically */
+    #main-nav ul {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    #main-nav ul li a {
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid #c05000;
+        border-radius: 0;
+        padding: 10px;
+    }
+
+    .hero { padding: 30px 16px; }
+    .hero h1 { font-size: 22px; }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main { padding: 0 14px; }
+
+    /* restaurant card goes single column */
+    .restaurant-card {
+        flex-direction: column;
+    }
+
+    .restaurant-card img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .restaurant-details {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* cards go single column */
+    .cards-grid {
+        flex-direction: column;
+    }
+
+    .users-grid {
+        flex-direction: column;
+    }
+
+    .form-section { max-width: 100%; }
+
+    .recommend-section { max-width: 100%; }
+
+    .bill-section { max-width: 100%; }
+
+    .radio-group,
+    .checkbox-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .bill-table { font-size: 13px; }
+
+}

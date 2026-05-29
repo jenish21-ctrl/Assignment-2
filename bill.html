@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estimate your restaurant bill on DineEasy">
+    <title>Bill Calculator | DineEasy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="images/logo.png" alt="DineEasy logo">
+                <span>DineEasy</span>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="restaurants.html">Restaurants</a></li>
+                    <li><a href="recommend.html">Recommend</a></li>
+                    <li><a href="reservation.html">Reserve</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="bill.html" class="active">Bill Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-title">
+            <h1>Estimated Bill Calculator</h1>
+            <p>Get a rough idea of what your group meal might cost before you book. Select a restaurant and enter your group details to see an estimate.</p>
+        </section>
+
+        <section class="bill-section">
+
+            <div class="bill-form-wrap">
+
+                <div class="form-group">
+                    <label for="bill-restaurant">Select Restaurant</label>
+                    <select id="bill-restaurant" onchange="updateBillOptions()">
+                        <option value="">-- Choose a restaurant --</option>
+                        <option value="Bella Roma" data-min="25" data-max="50" data-deposit="20">Bella Roma (Italian)</option>
+                        <option value="Sakura Kitchen" data-min="20" data-max="45" data-deposit="15">Sakura Kitchen (Japanese)</option>
+                        <option value="Spice Garden" data-min="20" data-max="40" data-deposit="15">Spice Garden (Indian)</option>
+                        <option value="Golden Dragon" data-min="18" data-max="45" data-deposit="20">Golden Dragon (Chinese)</option>
+                        <option value="Athena Taverna" data-min="25" data-max="55" data-deposit="25">Athena Taverna (Greek)</option>
+                        <option value="El Rancho" data-min="18" data-max="40" data-deposit="10">El Rancho (Mexican)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bill-people">Number of People</label>
+                    <input type="number" id="bill-people" min="1" max="50" value="2" placeholder="e.g. 4">
+                    <span class="error-msg" id="bill-people-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="bill-spend">Expected Spend Per Person</label>
+                    <select id="bill-spend">
+                        <option value="min">Budget (minimum price range)</option>
+                        <option value="mid" selected>Average (midpoint of price range)</option>
+                        <option value="max">Splurge (maximum price range)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="bill-drinks">Include Drinks?</label>
+                    <select id="bill-drinks">
+                        <option value="0">No drinks</option>
+                        <option value="10">Yes, budget drinks (~$10 per person)</option>
+                        <option value="20">Yes, mid-range drinks (~$20 per person)</option>
+                        <option value="35">Yes, premium drinks (~$35 per person)</option>
+                    </select>
+                </div>
+
+                <button class="btn-primary" onclick="calculateBill()">Calculate Estimate</button>
+
+            </div>
+
+            <!-- Bill result (hidden until calculated) -->
+            <div id="bill-result" class="bill-result" style="display: none;">
+                <h2>Your Estimated Bill</h2>
+                <table class="bill-table">
+                    <tbody>
+                        <tr>
+                            <td>Restaurant</td>
+                            <td id="bill-result-restaurant">—</td>
+                        </tr>
+                        <tr>
+                            <td>Number of People</td>
+                            <td id="bill-result-people">—</td>
+                        </tr>
+                        <tr>
+                            <td>Food Cost (per person)</td>
+                            <td id="bill-result-perperson">—</td>
+                        </tr>
+                        <tr>
+                            <td>Drinks Cost (per person)</td>
+                            <td id="bill-result-drinks">—</td>
+                        </tr>
+                        <tr>
+                            <td>Subtotal (food + drinks)</td>
+                            <td id="bill-result-subtotal">—</td>
+                        </tr>
+                        <tr>
+                            <td>Reservation Deposit</td>
+                            <td id="bill-result-deposit">—</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td><strong>Estimated Total</strong></td>
+                            <td id="bill-result-total"><strong>—</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="bill-note">* This is an estimate only. Actual costs may vary depending on your order. The deposit is deducted from your final bill at the restaurant.</p>
+                <a id="bill-reserve-link" href="reservation.html" class="btn-primary">Book This Restaurant</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineEasy. Built for COS10005 Web Development — Swinburne University of Technology.</p>
+        <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="recommend.html">Recommend</a>
+            <a href="reservation.html">Reserve</a>
+            <a href="register.html">Register</a>
+            <a href="bill.html">Bill Calculator</a>
+        </nav>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

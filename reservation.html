@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Make a restaurant reservation on DineEasy">
+    <title>Reservation | DineEasy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="images/logo.png" alt="DineEasy logo">
+                <span>DineEasy</span>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="restaurants.html">Restaurants</a></li>
+                    <li><a href="recommend.html">Recommend</a></li>
+                    <li><a href="reservation.html" class="active">Reserve</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="bill.html">Bill Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-title">
+            <h1>Make a Reservation</h1>
+            <p>Fill in your details below to book a table. A small deposit is required to secure your reservation.</p>
+        </section>
+
+        <section class="form-section">
+            <form id="reservation-form" action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php" method="POST" novalidate>
+
+                <!-- Full name -->
+                <div class="form-group">
+                    <label for="fullname">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Your full name">
+                    <span class="error-msg" id="fullname-error"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="res-email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="res-email" name="email" placeholder="you@email.com">
+                    <span class="error-msg" id="res-email-error"></span>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label for="res-phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="res-phone" name="phone" placeholder="At least 10 digits">
+                    <span class="error-msg" id="res-phone-error"></span>
+                </div>
+
+                <!-- Restaurant selection -->
+                <div class="form-group">
+                    <label for="restaurant-select">Select Restaurant <span class="required">*</span></label>
+                    <select id="restaurant-select" name="restaurant" onchange="updateDeposit()">
+                        <option value="">-- Choose a restaurant --</option>
+                        <option value="Bella Roma" data-deposit="20">Bella Roma (Italian) — Deposit: $20</option>
+                        <option value="Sakura Kitchen" data-deposit="15">Sakura Kitchen (Japanese) — Deposit: $15</option>
+                        <option value="Spice Garden" data-deposit="15">Spice Garden (Indian) — Deposit: $15</option>
+                        <option value="Golden Dragon" data-deposit="20">Golden Dragon (Chinese) — Deposit: $20</option>
+                        <option value="Athena Taverna" data-deposit="25">Athena Taverna (Greek) — Deposit: $25</option>
+                        <option value="El Rancho" data-deposit="10">El Rancho (Mexican) — Deposit: $10</option>
+                    </select>
+                    <span class="error-msg" id="restaurant-error"></span>
+                </div>
+
+                <!-- Deposit display -->
+                <div class="form-group" id="deposit-display" style="display: none;">
+                    <label>Deposit Amount</label>
+                    <p class="deposit-amount">$<span id="deposit-value">0</span> required for this restaurant</p>
+                </div>
+
+                <!-- Date and time -->
+                <div class="form-group">
+                    <label for="res-date">Reservation Date <span class="required">*</span></label>
+                    <input type="date" id="res-date" name="date">
+                    <span class="error-msg" id="date-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="res-time">Reservation Time <span class="required">*</span></label>
+                    <input type="time" id="res-time" name="time">
+                    <span class="error-msg" id="time-error"></span>
+                </div>
+
+                <!-- Number of people -->
+                <div class="form-group">
+                    <label for="num-people">Number of People <span class="required">*</span></label>
+                    <input type="number" id="num-people" name="people" min="1" placeholder="e.g. 2">
+                    <span class="error-msg" id="people-error"></span>
+                </div>
+
+                <!-- Special requests -->
+                <div class="form-group">
+                    <label for="special-requests">Special Requests (optional)</label>
+                    <textarea id="special-requests" name="special_requests" rows="3" placeholder="e.g. window seat, wheelchair access, food allergies"></textarea>
+                </div>
+
+                <!-- Payment method -->
+                <div class="form-group">
+                    <label>Deposit Payment Method <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="payment_method" value="voucher" onclick="showPaymentFields('voucher')"> Voucher
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="payment_method" value="online" onclick="showPaymentFields('online')"> Online Payment
+                        </label>
+                    </div>
+                    <span class="error-msg" id="payment-error"></span>
+                </div>
+
+                <!-- Voucher code field (shown only if Voucher selected) -->
+                <div class="form-group" id="voucher-field" style="display: none;">
+                    <label for="voucher-code">Voucher Code <span class="required">*</span></label>
+                    <input type="text" id="voucher-code" name="voucher_code" placeholder="Enter your 12-digit voucher code" maxlength="12">
+                    <span class="error-msg" id="voucher-error"></span>
+                    <small>Must be exactly 12 digits.</small>
+                </div>
+
+                <!-- Credit card fields (shown only if Online Payment selected) -->
+                <div id="card-fields" style="display: none;">
+
+                    <div class="form-group">
+                        <label for="card-type">Card Type <span class="required">*</span></label>
+                        <select id="card-type" name="card_type" onchange="updateCardHint()">
+                            <option value="">-- Select card type --</option>
+                            <option value="visa">Visa (16 digits)</option>
+                            <option value="mastercard">Mastercard (16 digits)</option>
+                            <option value="amex">American Express (15 digits)</option>
+                        </select>
+                        <span class="error-msg" id="card-type-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card-number">Card Number <span class="required">*</span></label>
+                        <input type="text" id="card-number" name="card_number" placeholder="Card number (digits only)">
+                        <span class="error-msg" id="card-error"></span>
+                        <small id="card-hint">Visa/Mastercard: 16 digits | Amex: 15 digits</small>
+                    </div>
+
+                </div>
+
+                <!-- Billing email -->
+                <div class="form-group">
+                    <label for="billing-email">Billing Email Address <span class="required">*</span></label>
+                    <input type="email" id="billing-email" name="billing_email" placeholder="Billing email address">
+                    <span class="error-msg" id="billing-error"></span>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="same-email" onchange="copyEmail()"> Same as email address above
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary" id="reserve-btn">Confirm Reservation</button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineEasy. Built for COS10005 Web Development — Swinburne University of Technology.</p>
+        <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="recommend.html">Recommend</a>
+            <a href="reservation.html">Reserve</a>
+            <a href="register.html">Register</a>
+            <a href="bill.html">Bill Calculator</a>
+        </nav>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

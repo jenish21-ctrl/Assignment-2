@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get a personalised restaurant recommendation on DineEasy">
+    <title>Recommend | DineEasy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="images/logo.png" alt="DineEasy logo">
+                <span>DineEasy</span>
+            </div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="restaurants.html">Restaurants</a></li>
+                    <li><a href="recommend.html" class="active">Recommend</a></li>
+                    <li><a href="reservation.html">Reserve</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="bill.html">Bill Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-title">
+            <h1>Get a Restaurant Recommendation</h1>
+            <p>Tell us your preferences and we will suggest the best restaurant for you from our listings.</p>
+        </section>
+
+        <section class="recommend-section">
+
+            <!-- Recommendation form -->
+            <div class="recommend-form-wrap">
+                <form id="recommend-form">
+
+                    <div class="form-group">
+                        <label for="dietary">Dietary Preference</label>
+                        <select id="dietary" name="dietary">
+                            <option value="">-- Select --</option>
+                            <option value="none">No Preference</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="halal">Halal</option>
+                            <option value="glutenfree">Gluten Free</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget Per Person</label>
+                        <select id="budget" name="budget">
+                            <option value="">-- Select --</option>
+                            <option value="low">Under $25</option>
+                            <option value="mid">$25 – $45</option>
+                            <option value="high">Over $45</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="purpose">Dining Occasion</label>
+                        <select id="purpose" name="purpose">
+                            <option value="">-- Select --</option>
+                            <option value="family">Family Dinner</option>
+                            <option value="date">Date Night</option>
+                            <option value="business">Business Lunch</option>
+                            <option value="friends">Night Out with Friends</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn-primary" onclick="getRecommendation()">Find My Restaurant</button>
+
+                </form>
+            </div>
+
+            <!-- Recommendation result (hidden until JS shows it) -->
+            <div id="recommendation-result" class="recommendation-result" style="display: none;">
+                <h2>We Recommend:</h2>
+                <div id="result-card" class="result-card">
+                    <h3 id="result-name"></h3>
+                    <p id="result-cuisine" class="cuisine-badge"></p>
+                    <p id="result-reason"></p>
+                    <p id="result-price"></p>
+                    <p id="result-deposit"></p>
+                    <a id="result-reserve-btn" href="#" class="btn-primary">Reserve This Restaurant</a>
+                </div>
+            </div>
+
+            <!-- No match message -->
+            <div id="no-match" class="no-match-msg" style="display: none;">
+                <p>Sorry, we could not find a perfect match for your preferences. Try adjusting your selections or <a href="restaurants.html">browse all restaurants</a>.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DineEasy. Built for COS10005 Web Development — Swinburne University of Technology.</p>
+        <nav class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="restaurants.html">Restaurants</a>
+            <a href="recommend.html">Recommend</a>
+            <a href="reservation.html">Reserve</a>
+            <a href="register.html">Register</a>
+            <a href="bill.html">Bill Calculator</a>
+        </nav>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
